@@ -1,14 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "corruption_compliants"; 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("connect.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'] ?? "Anonymous"; 
@@ -27,6 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
 $conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="goback.php" method="post">
+        <input type="submit" value="Go Back">
+    </form>
+</body>
+</html>
